@@ -11,7 +11,10 @@ export function FinalCta() {
           <p className="cta-text">
             De o primeiro passo rumo a um atendimento que nunca dorme e nunca falha.
           </p>
-          <a className="button button-primary button-whatsapp" href="https://wa.me/5511973315085">
+          <a
+            className="button button-primary button-whatsapp"
+            href="https://wa.me/5511973315085?text=Gostaria%20de%20conversar%20com%20um%20especialista"
+          >
             <span className="whatsapp-icon" aria-hidden="true">
               <WhatsappIcon />
             </span>

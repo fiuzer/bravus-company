@@ -29,7 +29,10 @@ export function Hero() {
                 <ArrowRightIcon />
               </span>
             </a>
-            <a className="button button-secondary" href="https://wa.me/5511973315085">
+            <a
+              className="button button-secondary"
+              href="https://wa.me/5511973315085?text=Gostaria%20de%20conversar%20com%20um%20especialista"
+            >
               Falar com especialista
             </a>
           </div>
