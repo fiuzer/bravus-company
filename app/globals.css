@@ -28,6 +28,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 132px;
 }
 
 body {
@@ -74,6 +75,11 @@ img {
   position: relative;
   z-index: 1;
   padding: 0 24px;
+  scroll-margin-top: 132px;
+}
+
+#demo {
+  scroll-margin-top: 15px;
 }
 
 .container {
@@ -618,9 +624,18 @@ img {
 }
 
 @media (max-width: 640px) {
+  html {
+    scroll-padding-top: 88px;
+  }
+
   .section {
     padding-left: 18px;
     padding-right: 18px;
+    scroll-margin-top: 88px;
+  }
+
+  #demo {
+    scroll-margin-top: 96px;
   }
 
   .site-header__inner {
