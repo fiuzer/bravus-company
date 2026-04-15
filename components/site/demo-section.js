@@ -17,22 +17,15 @@ export function DemoSection() {
 
             <div className="demo-phone">
               <div className="demo-phone__bezel">
-                <video
+                <iframe
                   className="demo-phone__video"
-                  autoPlay
-                  controls
-                  loop
-                  muted
-                  playsInline
-                  preload="metadata"
-                  aria-label="Video demonstrando a automacao da Bravus Company no WhatsApp"
-                >
-                  <source
-                    src="/videos/pare-de-perder-clientes-no-whatsapp.mp4"
-                    type="video/mp4"
-                  />
-                  Seu navegador nao suporta reproducao de video.
-                </video>
+                  src="https://www.youtube.com/embed/Edgev_iFO7M?autoplay=1&mute=1&loop=1&playlist=Edgev_iFO7M&playsinline=1&rel=0&modestbranding=1"
+                  title="Video demonstrando a automacao da Bravus Company no WhatsApp"
+                  loading="lazy"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  allowFullScreen
+                />
               </div>
             </div>
           </div>
