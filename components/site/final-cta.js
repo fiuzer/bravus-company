@@ -9,7 +9,7 @@ export function FinalCta() {
         <div className="final-cta__content">
           <h2 className="cta-title">Quer isso funcionando no seu WhatsApp?</h2>
           <p className="cta-text">
-            De o primeiro passo rumo a um atendimento que nunca dorme e nunca falha.
+            Dê o primeiro passo rumo a um atendimento que nunca dorme e nunca falha.
           </p>
           <a
             className="button button-primary button-whatsapp"

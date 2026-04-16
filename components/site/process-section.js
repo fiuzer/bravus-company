@@ -15,7 +15,7 @@ export function ProcessSection() {
         <div className="section-heading">
           <h2 className="section-title">Processo em 3 etapas</h2>
           <p className="section-text">
-            Implementacao rapida e sem atritos para transformar seu atendimento hoje mesmo.
+            Implementação rápida e sem atritos para transformar seu atendimento hoje mesmo.
           </p>
         </div>
 

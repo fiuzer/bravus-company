@@ -2,18 +2,18 @@ import "./globals.css";
 
 export const metadata = {
   metadataBase: new URL("https://www.bravuscompany.com"),
-  title: "Bravus Company | Automacao de WhatsApp",
+  title: "Bravus Company | Automação de WhatsApp",
   description:
-    "Automatize respostas, organize atendimentos e faca pre-agendamentos automaticamente com a Bravus Company.",
+    "Automatize respostas, organize atendimentos e faça pré-agendamentos automaticamente com a Bravus Company.",
   icons: {
     icon: "/brand/bravus-logo-original.jpg",
     shortcut: "/brand/bravus-logo-original.jpg",
     apple: "/brand/bravus-logo-original.jpg",
   },
   openGraph: {
-    title: "Bravus Company | Automacao de WhatsApp",
+    title: "Bravus Company | Automação de WhatsApp",
     description:
-      "Automatize respostas, organize atendimentos e faca pre-agendamentos automaticamente com a Bravus Company.",
+      "Automatize respostas, organize atendimentos e faça pré-agendamentos automaticamente com a Bravus Company.",
     images: [
       {
         url: "/brand/bravus-logo-original.jpg",
@@ -25,9 +25,9 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Bravus Company | Automacao de WhatsApp",
+    title: "Bravus Company | Automação de WhatsApp",
     description:
-      "Automatize respostas, organize atendimentos e faca pre-agendamentos automaticamente com a Bravus Company.",
+      "Automatize respostas, organize atendimentos e faça pré-agendamentos automaticamente com a Bravus Company.",
     images: ["/brand/bravus-logo-original.jpg"],
   },
 };

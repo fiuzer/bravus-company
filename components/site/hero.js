@@ -8,7 +8,7 @@ export function Hero() {
         <div className="hero__content">
           <div className="hero__eyebrow">
             <span className="hero__eyebrow-dot" aria-hidden="true" />
-            <span>Automacao inteligente</span>
+            <span>Automação inteligente</span>
           </div>
 
           <h1 className="display-title gradient-text">
@@ -18,13 +18,13 @@ export function Hero() {
           </h1>
 
           <p className="hero__lead">
-            Automatize respostas, organize atendimentos e faca pre-agendamentos
+            Automatize respostas, organize atendimentos e faça pré-agendamentos
             automaticamente com a Bravus Company.
           </p>
 
           <div className="button-row">
             <a className="button button-primary" href="#demo">
-              Ver demonstracao
+              Ver demonstração
               <span className="icon-arrow" aria-hidden="true">
                 <ArrowRightIcon />
               </span>

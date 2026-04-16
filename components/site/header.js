@@ -17,11 +17,11 @@ export function Header() {
             />
           </a>
 
-          <nav className="site-header__nav" aria-label="Navegacao principal">
-            <a href="#beneficios">Beneficios</a>
+          <nav className="site-header__nav" aria-label="Navegação principal">
+            <a href="#beneficios">Benefícios</a>
             <a href="#como-funciona">Como funciona</a>
             <a className="nav-pill" href="#demo">
-              Ver demonstracao
+              Ver demonstração
             </a>
           </nav>
         </div>
