@@ -13,9 +13,10 @@ export function ProcessSection() {
     <section className="section process" id="como-funciona">
       <Container>
         <div className="section-heading">
-          <h2 className="section-title">Processo em 3 etapas</h2>
+          <h2 className="section-title">Como funciona na prática</h2>
           <p className="section-text">
-            Implementação rápida e sem atritos para transformar seu atendimento hoje mesmo.
+            Você envia os arquivos das plataformas e recebe uma base pronta para
+            análise com os números organizados em até 24 horas.
           </p>
         </div>
 

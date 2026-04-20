@@ -8,32 +8,33 @@ export function Hero() {
         <div className="hero__content">
           <div className="hero__eyebrow">
             <span className="hero__eyebrow-dot" aria-hidden="true" />
-            <span>Automação inteligente</span>
+            <span>Análise de dados para tráfego pago</span>
           </div>
 
           <h1 className="display-title gradient-text">
-            Pare de perder clientes
+            Você foca na estratégia
             <br />
-            no WhatsApp
+            A Bravus cuida dos dados
           </h1>
 
           <p className="hero__lead">
-            Automatize respostas, organize atendimentos e faça pré-agendamentos
-            automaticamente com a Bravus Company.
+            Limpeza, consolidação e relatórios automáticos de Meta Ads, Google
+            Ads e Analytics para agências e gestores que não querem mais perder
+            horas no Excel.
           </p>
 
           <div className="button-row">
-            <a className="button button-primary" href="#demo">
-              Ver demonstração
+            <a
+              className="button button-primary"
+              href="https://wa.me/5511973315085?text=Oi%2C%20quero%20saber%20mais%20sobre%20o%20servi%C3%A7o%20de%20an%C3%A1lise%20de%20dados%20da%20Bravus"
+            >
+              Quero meus dados organizados
               <span className="icon-arrow" aria-hidden="true">
                 <ArrowRightIcon />
               </span>
             </a>
-            <a
-              className="button button-secondary"
-              href="https://wa.me/5511973315085?text=Gostaria%20de%20conversar%20com%20um%20especialista"
-            >
-              Falar com especialista
+            <a className="button button-secondary" href="#demo">
+              Ver antes e depois
             </a>
           </div>
         </div>

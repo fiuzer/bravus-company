@@ -1,17 +1,17 @@
 export const benefits = [
   {
-    title: "Responde clientes automaticamente",
-    text: "Seu WhatsApp ativo 24/7. Sem demoras, sem clientes esperando e com respostas instantâneas.",
+    title: "Limpeza de dados em até 24h",
+    text: "A Bravus recebe exports bagunçados de Meta Ads, Google Ads e Analytics e devolve uma base limpa, padronizada e pronta pra cruzar.",
     icon: "bot",
   },
   {
-    title: "Coleta informações sem esforço",
-    text: "Qualifique seus leads automaticamente. O sistema coleta dados essenciais antes mesmo de você intervir.",
+    title: "Consolidação sem planilha manual",
+    text: "Juntamos múltiplos arquivos, contas e períodos em uma única base organizada para você parar de gastar 3 a 4 horas por cliente todo mês.",
     icon: "database",
   },
   {
-    title: "Organiza e pré-agenda atendimentos",
-    text: "Fluxos inteligentes que encaminham o cliente para o setor correto ou agendam horários de forma autônoma.",
+    title: "Relatório mensal automático",
+    text: "Receba gasto, impressões, cliques e conversões por plataforma e por semana sem ficar preso no operacional dos dados.",
     icon: "calendar",
   },
 ];
@@ -19,20 +19,20 @@ export const benefits = [
 export const steps = [
   {
     number: "01",
-    title: "Configuramos seu atendimento",
-    text: "Analisamos seu negócio e criamos a lógica de conversação ideal para a sua audiência.",
+    title: "Você envia os exports",
+    text: "Mande os CSVs ou planilhas do Meta Ads, Google Ads e Analytics do jeito que saíram da plataforma.",
     icon: "settings",
   },
   {
     number: "02",
-    title: "Automatizamos o fluxo",
-    text: "Colocamos os robôs para trabalhar, integrando sistemas e testando cada resposta.",
+    title: "A Bravus limpa e consolida",
+    text: "Padronizamos colunas, corrigimos formatos, removemos ruído e unimos tudo em uma base única.",
     icon: "layers",
   },
   {
     number: "03",
-    title: "Você recebe clientes organizados",
-    text: "Foque apenas no fechamento enquanto a Bravus cuida da triagem e recepção.",
+    title: "Você recebe o relatório pronto",
+    text: "Os dados voltam organizados com resumo mensal recorrente para você focar na análise e na estratégia.",
     icon: "users",
   },
 ];

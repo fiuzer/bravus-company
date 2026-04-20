@@ -18,10 +18,10 @@ export function Header() {
           </a>
 
           <nav className="site-header__nav" aria-label="Navegação principal">
-            <a href="#beneficios">Benefícios</a>
+            <a href="#beneficios">Serviços</a>
             <a href="#como-funciona">Como funciona</a>
             <a className="nav-pill" href="#demo">
-              Ver demonstração
+              Ver antes e depois
             </a>
           </nav>
         </div>
