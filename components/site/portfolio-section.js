@@ -11,6 +11,8 @@ const projects = [
       "Landing page energética com foco em conversão, planos, depoimentos e WhatsApp.",
     file: "/portfolio/academia.html",
     accent: "#f97316",
+    image: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=600&h=180&q=80",
+    imageAlt: "Academia com equipamentos de musculação",
   },
   {
     nicho: "Barbearia / Salão",
@@ -19,6 +21,8 @@ const projects = [
       "Landing page premium com estilo masculino dourado, galeria e agendamento.",
     file: "/portfolio/barbearia.html",
     accent: "#c9a84c",
+    image: "https://images.unsplash.com/photo-1605497788044-5a32c7078486?auto=format&fit=crop&w=600&h=180&q=80",
+    imageAlt: "Interior de barbearia premium",
   },
   {
     nicho: "Clínica / Saúde",
@@ -27,6 +31,8 @@ const projects = [
       "Site institucional limpo e confiável com equipe médica, especialidades e agendamento.",
     file: "/portfolio/clinica.html",
     accent: "#1e6fbf",
+    image: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=600&h=180&q=80",
+    imageAlt: "Recepção de clínica médica moderna",
   },
 ];
 
@@ -49,6 +55,9 @@ export function PortfolioSection() {
                 style={{ background: project.accent }}
                 aria-hidden="true"
               />
+              <div className="portfolio-card__image">
+                <img src={project.image} alt={project.imageAlt} loading="lazy" />
+              </div>
               <div className="portfolio-card__body">
                 <span className="portfolio-card__badge">{project.nicho}</span>
                 <h3 className="portfolio-card__title">{project.name}</h3>

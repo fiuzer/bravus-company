@@ -18,15 +18,19 @@ const projects = [
     tags: ["Landing Page", "Energia", "Conversão"],
     file: "/portfolio/academia.html",
     accent: "#f97316",
+    image: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=800&h=220&q=80",
+    imageAlt: "Academia com equipamentos de musculação",
   },
   {
     nicho: "Barbearia / Salão Premium",
     name: "Barbearia Dom Pedro",
     description:
-      "Landing page premium com estilo masculino e dourado. Tabela de serviços com preços, galeria simulada com gradientes, mapa de localização e horários de atendimento.",
+      "Landing page premium com estilo masculino e dourado. Tabela de serviços com preços, galeria com fotos reais, mapa de localização e horários de atendimento.",
     tags: ["Landing Page", "Premium", "Agendamento"],
     file: "/portfolio/barbearia.html",
     accent: "#c9a84c",
+    image: "https://images.unsplash.com/photo-1605497788044-5a32c7078486?auto=format&fit=crop&w=800&h=220&q=80",
+    imageAlt: "Interior de barbearia premium",
   },
   {
     nicho: "Clínica / Saúde",
@@ -36,6 +40,8 @@ const projects = [
     tags: ["Site Institucional", "Saúde", "Confiança"],
     file: "/portfolio/clinica.html",
     accent: "#1e6fbf",
+    image: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=800&h=220&q=80",
+    imageAlt: "Recepção de clínica médica moderna",
   },
 ];
 
@@ -76,6 +82,9 @@ export default function PortfolioPage() {
                   style={{ background: project.accent }}
                   aria-hidden="true"
                 />
+                <div className="portfolio-card__image portfolio-full-card__image">
+                  <img src={project.image} alt={project.imageAlt} loading="lazy" />
+                </div>
                 <div className="portfolio-full-card__body">
                   <div className="portfolio-full-card__meta">
                     <span className="portfolio-card__badge">{project.nicho}</span>

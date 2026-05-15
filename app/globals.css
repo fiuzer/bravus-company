@@ -651,6 +651,25 @@ img {
   width: 100%;
 }
 
+.portfolio-card__image {
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+}
+
+.portfolio-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+  transition: transform 400ms ease;
+}
+
+.portfolio-card:hover .portfolio-card__image img {
+  transform: scale(1.04);
+}
+
 .portfolio-card__body {
   padding: 28px 32px 20px;
   flex: 1;
@@ -747,6 +766,12 @@ img {
 
 .portfolio-full-card__stripe {
   width: 6px;
+  grid-row: 1 / -1;
+}
+
+.portfolio-full-card__image {
+  height: 220px;
+  overflow: hidden;
 }
 
 .portfolio-full-card__body {
