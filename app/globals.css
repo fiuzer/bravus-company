@@ -877,15 +877,17 @@ img {
 
 .portfolio-full-card__stripe {
   width: 6px;
-  grid-row: 1 / -1;
+  grid-row: 1 / span 2;
 }
 
 .portfolio-full-card__image {
+  grid-column: 2;
   height: 220px;
   overflow: hidden;
 }
 
 .portfolio-full-card__body {
+  grid-column: 2;
   padding: 36px 40px;
 }
 
