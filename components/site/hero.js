@@ -28,7 +28,7 @@ export function Hero() {
           <div className="button-row">
             <a
               className="button button-primary"
-              href="https://wa.me/5511999999999"
+              href="#contato"
             >
               Quero meu site agora
               <span className="icon-arrow" aria-hidden="true">

@@ -128,9 +128,9 @@ export default function PortfolioPage() {
             </p>
             <a
               className="button button-primary button-whatsapp"
-              href="https://wa.me/5511999999999"
+              href="/#contato"
             >
-              Falar com a Bravus no WhatsApp
+              Solicitar orçamento
             </a>
           </div>
         </Container>

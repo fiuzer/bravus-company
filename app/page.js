@@ -1,5 +1,5 @@
 import { BenefitsSection } from "@/components/site/benefits-section";
-import { FinalCta } from "@/components/site/final-cta";
+import { ContactSection } from "@/components/site/contact-section";
 import { Footer } from "@/components/site/footer";
 import { Header } from "@/components/site/header";
 import { Hero } from "@/components/site/hero";
@@ -15,7 +15,7 @@ export default function HomePage() {
       <BenefitsSection />
       <PortfolioSection />
       <ProcessSection />
-      <FinalCta />
+      <ContactSection />
       <Footer />
     </main>
   );

@@ -21,9 +21,10 @@ export function Header() {
           <nav className="site-header__nav" aria-label="Navegação principal">
             <a href="/#servicos">Serviços</a>
             <a href="/#como-funciona">Como funciona</a>
-            <Link className="nav-pill" href="/portfolio">
-              Portfólio
-            </Link>
+            <Link href="/portfolio">Portfólio</Link>
+            <a className="nav-pill" href="/#contato">
+              Fale conosco
+            </a>
           </nav>
         </div>
       </Container>
