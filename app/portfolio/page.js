@@ -4,9 +4,10 @@ import { ArrowRightIcon } from "@/components/site/icons";
 import { Container } from "@/components/ui/container";
 
 export const metadata = {
-  title: "Portfólio | Bravus Company",
+  title: "Portfólio",
   description:
     "Confira os projetos desenvolvidos pela Bravus Company — landing pages e sites profissionais para negócios brasileiros.",
+  alternates: { canonical: "/portfolio" },
 };
 
 const projects = [
@@ -19,7 +20,7 @@ const projects = [
     file: "/portfolio/academia.html",
     accent: "#f97316",
     image: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=800&h=220&q=80",
-    imageAlt: "Academia com equipamentos de musculação",
+    imageAlt: "Landing page de academia — ForcaMax Personal Training",
   },
   {
     nicho: "Barbearia / Salão Premium",
@@ -30,7 +31,7 @@ const projects = [
     file: "/portfolio/barbearia.html",
     accent: "#c9a84c",
     image: "https://images.unsplash.com/photo-1605497788044-5a32c7078486?auto=format&fit=crop&w=800&h=220&q=80",
-    imageAlt: "Interior de barbearia premium",
+    imageAlt: "Site para barbearia — Barbearia Dom Pedro",
   },
   {
     nicho: "Clínica / Saúde",
@@ -41,7 +42,7 @@ const projects = [
     file: "/portfolio/clinica.html",
     accent: "#1e6fbf",
     image: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=800&h=220&q=80",
-    imageAlt: "Recepção de clínica médica moderna",
+    imageAlt: "Site para clínica médica — Clínica Vita Saúde",
   },
 ];
 

@@ -27,9 +27,10 @@ export function TestimonialsSection() {
               <div className="testimonial-card__header">
                 <img
                   src={depoimento.avatar}
-                  alt={depoimento.name}
+                  alt={`${depoimento.name} — ${depoimento.business}`}
                   width={44}
                   height={44}
+                  loading="lazy"
                   className="testimonial-card__avatar"
                 />
                 <div>
