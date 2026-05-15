@@ -20,7 +20,7 @@ export function ContactSection() {
     ];
     if (form.mensagem.trim()) lines.push("", form.mensagem.trim());
     const text = encodeURIComponent(lines.join("\n"));
-    window.open(`https://wa.me/5511999999999?text=${text}`, "_blank");
+    window.open(`https://wa.me/5511973315085?text=${text}`, "_blank");
   }
 
   return (

@@ -14,7 +14,7 @@ export function FinalCta() {
           </p>
           <a
             className="button button-primary button-whatsapp"
-            href="https://wa.me/5511999999999"
+            href="https://wa.me/5511973315085"
           >
             <span className="whatsapp-icon" aria-hidden="true">
               <WhatsappIcon />
