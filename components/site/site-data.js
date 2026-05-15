@@ -1,38 +1,38 @@
 export const benefits = [
   {
-    title: "Limpeza de dados em até 24h",
-    text: "A Bravus recebe exports bagunçados de Meta Ads, Google Ads e Analytics e devolve uma base limpa, padronizada e pronta pra cruzar.",
-    icon: "bot",
+    title: "Landing Page que converte",
+    text: "Página profissional focada em resultado: captura leads, apresenta seus serviços e leva o visitante direto para o WhatsApp. Entregue em até 7 dias.",
+    icon: "monitor",
   },
   {
-    title: "Consolidação sem planilha manual",
-    text: "Juntamos múltiplos arquivos, contas e períodos em uma única base organizada para você parar de gastar 3 a 4 horas por cliente todo mês.",
-    icon: "database",
+    title: "MVP em tempo recorde",
+    text: "Transformamos sua ideia em produto funcional rapidamente para você validar no mercado antes de investir mais. Do briefing ao deploy em semanas.",
+    icon: "rocket",
   },
   {
-    title: "Relatório mensal automático",
-    text: "Receba gasto, impressões, cliques e conversões por plataforma e por semana sem ficar preso no operacional dos dados.",
-    icon: "calendar",
+    title: "Site Institucional profissional",
+    text: "Presença online completa que transmite credibilidade e confiança para seus clientes. Design moderno, responsivo e otimizado para buscas.",
+    icon: "building",
   },
 ];
 
 export const steps = [
   {
     number: "01",
-    title: "Você envia os exports",
-    text: "Mande os CSVs ou planilhas do Meta Ads, Google Ads e Analytics do jeito que saíram da plataforma.",
+    title: "Você faz o briefing",
+    text: "Me conta sua ideia, seu negócio e o que você precisa. Em até 24h tenho uma proposta clara e um prazo definido.",
     icon: "settings",
   },
   {
     number: "02",
-    title: "A Bravus limpa e consolida",
-    text: "Padronizamos colunas, corrigimos formatos, removemos ruído e unimos tudo em uma base única.",
+    title: "A Bravus desenvolve",
+    text: "Colocamos sua ideia em código. Você acompanha o progresso e valida cada etapa antes da entrega final.",
     icon: "layers",
   },
   {
     number: "03",
-    title: "Você recebe o relatório pronto",
-    text: "Os dados voltam organizados com resumo mensal recorrente para você focar na análise e na estratégia.",
+    title: "Você recebe o site pronto",
+    text: "Entregamos o projeto no prazo combinado, publicado e funcionando. Suporte incluso após a entrega.",
     icon: "users",
   },
 ];

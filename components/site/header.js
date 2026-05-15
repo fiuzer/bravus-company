@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 import { Container } from "@/components/ui/container";
 
@@ -7,7 +8,7 @@ export function Header() {
     <header className="site-header">
       <Container>
         <div className="site-header__inner">
-          <a className="site-header__logo" href="#top" aria-label="Bravus Company">
+          <a className="site-header__logo" href="/" aria-label="Bravus Company">
             <Image
               src="/brand/bravus-logo.png"
               alt="Bravus Company"
@@ -18,11 +19,11 @@ export function Header() {
           </a>
 
           <nav className="site-header__nav" aria-label="Navegação principal">
-            <a href="#beneficios">Serviços</a>
-            <a href="#como-funciona">Como funciona</a>
-            <a className="nav-pill" href="#demo">
-              Ver antes e depois
-            </a>
+            <a href="/#servicos">Serviços</a>
+            <a href="/#como-funciona">Como funciona</a>
+            <Link className="nav-pill" href="/portfolio">
+              Portfólio
+            </Link>
           </nav>
         </div>
       </Container>

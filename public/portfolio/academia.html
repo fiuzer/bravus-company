@@ -1,0 +1,1366 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="ForcaMax Personal Training — Transforme seu corpo com treinos personalizados presenciais e online. Avaliação física gratuita. Comece hoje!" />
+  <title>ForcaMax Personal Training — Transforme Seu Corpo. Supere Seus Limites.</title>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <script>
+    /* Tailwind config */
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: '#f97316',
+            'brand-hover': '#ea6c0a',
+            dark: '#0a0a0a',
+            card: '#111111',
+            border: '#1f1f1f',
+            muted: '#a3a3a3',
+          },
+          fontFamily: {
+            display: ['Bebas Neue', 'cursive'],
+            body: ['Inter', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Reset e base */
+    *, *::before, *::after { box-sizing: border-box; }
+
+    body {
+      background-color: #0a0a0a;
+      color: #ffffff;
+      font-family: 'Inter', sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ---- Animações customizadas ---- */
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(32px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInLeft {
+      from { opacity: 0; transform: translateX(-32px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+
+    @keyframes fadeInRight {
+      from { opacity: 0; transform: translateX(32px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+
+    @keyframes pulse-glow {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(249, 115, 22, 0.4); }
+      50%       { box-shadow: 0 0 0 14px rgba(249, 115, 22, 0); }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(-8px); }
+    }
+
+    @keyframes ticker {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* Utility de animação ao scroll */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-left {
+      opacity: 0;
+      transform: translateX(-28px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal-left.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    .reveal-right {
+      opacity: 0;
+      transform: translateX(28px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal-right.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    /* Hero — animação de entrada imediata */
+    .hero-title  { animation: fadeInUp   0.8s ease 0.1s both; }
+    .hero-sub    { animation: fadeInUp   0.8s ease 0.3s both; }
+    .hero-cta    { animation: fadeInUp   0.8s ease 0.5s both; }
+    .hero-badge  { animation: fadeInUp   0.8s ease 0.7s both; }
+
+    /* Gradiente de fundo do hero */
+    .hero-bg {
+      background:
+        radial-gradient(ellipse 70% 60% at 20% 40%, rgba(249,115,22,0.12) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 50% at 80% 70%, rgba(249,115,22,0.07) 0%, transparent 55%),
+        #0a0a0a;
+    }
+
+    /* Linha decorativa laranja */
+    .accent-line {
+      display: inline-block;
+      width: 48px;
+      height: 4px;
+      background: #f97316;
+      border-radius: 2px;
+    }
+
+    /* Cards de serviço */
+    .service-card {
+      background: #111111;
+      border: 1px solid #1f1f1f;
+      border-radius: 16px;
+      padding: 2rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+      cursor: default;
+    }
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 50px rgba(249, 115, 22, 0.18);
+      border-color: rgba(249, 115, 22, 0.4);
+    }
+
+    /* Cards de depoimento */
+    .testimonial-card {
+      background: #111111;
+      border: 1px solid #1f1f1f;
+      border-radius: 16px;
+      padding: 1.75rem;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    .testimonial-card:hover {
+      border-color: rgba(249, 115, 22, 0.3);
+      box-shadow: 0 12px 32px rgba(249, 115, 22, 0.1);
+    }
+
+    /* Avatar fictício */
+    .avatar {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Bebas Neue', cursive;
+      font-size: 1.4rem;
+      color: #fff;
+    }
+
+    /* Cards de preço */
+    .price-card {
+      background: #111111;
+      border: 1px solid #1f1f1f;
+      border-radius: 16px;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .price-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 48px rgba(249, 115, 22, 0.12);
+    }
+    .price-card.popular {
+      border: 2px solid #f97316;
+      position: relative;
+    }
+
+    /* Badge "Mais Popular" */
+    .badge-popular {
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #f97316;
+      color: #0a0a0a;
+      font-family: 'Bebas Neue', cursive;
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      padding: 4px 18px;
+      border-radius: 100px;
+      white-space: nowrap;
+    }
+
+    /* Ticker (fita de texto animada) */
+    .ticker-wrap {
+      overflow: hidden;
+      white-space: nowrap;
+      border-top: 1px solid #1f1f1f;
+      border-bottom: 1px solid #1f1f1f;
+      background: #0a0a0a;
+    }
+    .ticker-track {
+      display: inline-flex;
+      animation: ticker 28s linear infinite;
+    }
+    .ticker-track:hover { animation-play-state: paused; }
+
+    /* Nav link hover */
+    .nav-link {
+      position: relative;
+      color: #a3a3a3;
+      transition: color 0.2s;
+    }
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -4px; left: 0;
+      width: 0; height: 2px;
+      background: #f97316;
+      border-radius: 1px;
+      transition: width 0.25s ease;
+    }
+    .nav-link:hover { color: #ffffff; }
+    .nav-link:hover::after { width: 100%; }
+
+    /* Botão CTA primário */
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #f97316;
+      color: #0a0a0a;
+      font-family: 'Bebas Neue', cursive;
+      font-size: 1.1rem;
+      letter-spacing: 0.08em;
+      padding: 0.85rem 2rem;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
+    }
+    .btn-primary:hover {
+      background: #ea6c0a;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(249, 115, 22, 0.4);
+    }
+    .btn-primary:active { transform: translateY(0); }
+
+    /* Botão outline */
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      color: #f97316;
+      font-family: 'Bebas Neue', cursive;
+      font-size: 1.05rem;
+      letter-spacing: 0.07em;
+      padding: 0.8rem 1.8rem;
+      border-radius: 8px;
+      border: 2px solid #f97316;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s, transform 0.15s;
+    }
+    .btn-outline:hover {
+      background: #f97316;
+      color: #0a0a0a;
+      transform: translateY(-2px);
+    }
+
+    /* Inputs do formulário */
+    .form-input {
+      width: 100%;
+      background: #111111;
+      border: 1px solid #1f1f1f;
+      border-radius: 8px;
+      color: #ffffff;
+      padding: 0.85rem 1rem;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .form-input::placeholder { color: #4b4b4b; }
+    .form-input:focus {
+      border-color: #f97316;
+      box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.15);
+    }
+
+    /* Separador decorativo de seção */
+    .section-sep {
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #1f1f1f 30%, #1f1f1f 70%, transparent);
+    }
+
+    /* Botão WhatsApp flutuante */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 28px;
+      right: 24px;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #25d366;
+      color: #ffffff;
+      font-family: 'Inter', sans-serif;
+      font-weight: 600;
+      font-size: 0.9rem;
+      padding: 0.75rem 1.25rem;
+      border-radius: 100px;
+      text-decoration: none;
+      box-shadow: 0 6px 28px rgba(37, 211, 102, 0.45);
+      animation: pulse-glow 2.5s ease-in-out infinite, float 3.5s ease-in-out infinite;
+      transition: transform 0.2s, box-shadow 0.2s;
+      white-space: nowrap;
+    }
+    .whatsapp-float:hover {
+      transform: translateY(-4px) scale(1.04);
+      box-shadow: 0 12px 36px rgba(37, 211, 102, 0.6);
+    }
+
+    /* Nav scrolled */
+    .nav-scrolled {
+      background: rgba(10, 10, 10, 0.95) !important;
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid #1f1f1f;
+    }
+
+    /* Mobile menu */
+    #mobile-menu {
+      display: none;
+    }
+    #mobile-menu.open {
+      display: flex;
+    }
+
+    /* Checkmark de planos */
+    .plan-check { color: #f97316; font-weight: 700; margin-right: 8px; }
+
+    /* Glow laranja sutil em números de estatística */
+    .stat-number {
+      font-family: 'Bebas Neue', cursive;
+      font-size: 3rem;
+      color: #f97316;
+      line-height: 1;
+    }
+
+    /* Linha de separação de seção com ícone central */
+    .divider-icon {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin: 0 auto;
+      max-width: 200px;
+    }
+    .divider-icon::before,
+    .divider-icon::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: #1f1f1f;
+    }
+
+    /* Scroll bar personalizada */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #0a0a0a; }
+    ::-webkit-scrollbar-thumb { background: #1f1f1f; border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: #f97316; }
+  </style>
+</head>
+<body class="font-body bg-dark text-white">
+
+  <!-- ============================================================
+       BOTÃO WHATSAPP FLUTUANTE
+       ============================================================ -->
+  <a
+    href="https://wa.me/5511999999999"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="whatsapp-float"
+    aria-label="Chamar no WhatsApp"
+  >
+    <!-- Ícone SVG WhatsApp -->
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+    <span class="hidden sm:inline">Chamar no WhatsApp</span>
+  </a>
+
+  <!-- ============================================================
+       NAV — Navegação principal
+       ============================================================ -->
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-4">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between">
+
+        <!-- Logo -->
+        <a href="#hero" class="flex items-center gap-2" aria-label="ForcaMax — Início">
+          <span class="font-display text-3xl text-white leading-none tracking-wide">
+            FORCA<span class="text-brand">MAX</span>
+          </span>
+        </a>
+
+        <!-- Links desktop -->
+        <div class="hidden md:flex items-center gap-8">
+          <a href="#servicos"    class="nav-link text-sm font-medium">Serviços</a>
+          <a href="#depoimentos" class="nav-link text-sm font-medium">Resultados</a>
+          <a href="#precos"      class="nav-link text-sm font-medium">Planos</a>
+          <a href="#contato"     class="nav-link text-sm font-medium">Contato</a>
+        </div>
+
+        <!-- CTA desktop -->
+        <div class="hidden md:flex items-center gap-4">
+          <a href="#contato" class="btn-primary text-sm py-2.5 px-5">
+            Começar Agora
+          </a>
+        </div>
+
+        <!-- Hamburguer mobile -->
+        <button
+          id="menu-toggle"
+          class="md:hidden flex flex-col gap-1.5 p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-brand"
+          aria-label="Abrir menu"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+        >
+          <span class="block w-6 h-0.5 bg-white transition-all duration-300" id="bar1"></span>
+          <span class="block w-6 h-0.5 bg-white transition-all duration-300" id="bar2"></span>
+          <span class="block w-5 h-0.5 bg-white transition-all duration-300" id="bar3"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Menu mobile -->
+    <div
+      id="mobile-menu"
+      class="flex-col gap-1 px-4 pb-4 pt-2 bg-card border-t border-border mt-4 md:hidden"
+      role="menu"
+    >
+      <a href="#servicos"    class="block py-3 px-4 text-muted hover:text-white rounded-lg hover:bg-white/5 transition-colors" role="menuitem">Serviços</a>
+      <a href="#depoimentos" class="block py-3 px-4 text-muted hover:text-white rounded-lg hover:bg-white/5 transition-colors" role="menuitem">Resultados</a>
+      <a href="#precos"      class="block py-3 px-4 text-muted hover:text-white rounded-lg hover:bg-white/5 transition-colors" role="menuitem">Planos</a>
+      <a href="#contato"     class="block py-3 px-4 text-muted hover:text-white rounded-lg hover:bg-white/5 transition-colors" role="menuitem">Contato</a>
+      <div class="pt-2 px-4">
+        <a href="#contato" class="btn-primary w-full justify-center">Começar Agora</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============================================================
+       SEÇÃO 1 — HERO
+       ============================================================ -->
+  <section id="hero" class="hero-bg relative min-h-screen flex flex-col justify-center overflow-hidden pt-20">
+
+    <!-- Decorações de fundo -->
+    <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+      <!-- Círculo decorativo esquerda -->
+      <div class="absolute -left-32 top-1/4 w-96 h-96 rounded-full"
+           style="background: radial-gradient(circle, rgba(249,115,22,0.08) 0%, transparent 70%);"></div>
+      <!-- Círculo decorativo direita -->
+      <div class="absolute -right-32 bottom-1/4 w-80 h-80 rounded-full"
+           style="background: radial-gradient(circle, rgba(249,115,22,0.06) 0%, transparent 70%);"></div>
+      <!-- Grid sutil -->
+      <div class="absolute inset-0 opacity-[0.03]"
+           style="background-image: linear-gradient(#f97316 1px, transparent 1px), linear-gradient(90deg, #f97316 1px, transparent 1px); background-size: 60px 60px;"></div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-16 lg:py-24">
+      <div class="max-w-3xl">
+
+        <!-- Badge superior -->
+        <div class="hero-badge mb-6 inline-flex items-center gap-2 bg-brand/10 border border-brand/20 rounded-full px-4 py-1.5">
+          <span class="w-2 h-2 rounded-full bg-brand animate-pulse"></span>
+          <span class="text-brand text-xs font-semibold tracking-widest uppercase">Personal Training Profissional</span>
+        </div>
+
+        <!-- Headline principal -->
+        <h1 class="hero-title font-display text-6xl sm:text-7xl lg:text-9xl leading-none tracking-wide mb-6">
+          TRANSFORME<br>
+          SEU <span class="text-brand">CORPO.</span><br>
+          SUPERE SEUS<br>
+          <span class="text-brand">LIMITES.</span>
+        </h1>
+
+        <!-- Subtítulo -->
+        <p class="hero-sub text-muted text-lg sm:text-xl max-w-xl mb-10 leading-relaxed">
+          Treinos personalizados criados para o <strong class="text-white">seu objetivo</strong>.
+          Acompanhamento completo, resultados reais. Não importa onde você está —
+          <em class="text-brand not-italic font-semibold">começamos agora.</em>
+        </p>
+
+        <!-- CTAs -->
+        <div class="hero-cta flex flex-col sm:flex-row gap-4 flex-wrap">
+          <a
+            href="https://wa.me/5511999999999"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-primary text-base py-4 px-8"
+            aria-label="Falar com o personal trainer no WhatsApp"
+          >
+            <!-- Ícone WhatsApp inline -->
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            FALE CONOSCO NO WHATSAPP
+          </a>
+          <a href="#servicos" class="btn-outline text-base py-4 px-8">
+            Conhecer Serviços
+          </a>
+        </div>
+
+        <!-- Selos de confiança -->
+        <div class="hero-badge mt-12 flex flex-wrap gap-6 items-center">
+          <div class="flex items-center gap-2 text-muted text-sm">
+            <svg class="text-brand" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+            Avaliação gratuita
+          </div>
+          <div class="flex items-center gap-2 text-muted text-sm">
+            <svg class="text-brand" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/>
+            </svg>
+            Suporte 7 dias/semana
+          </div>
+          <div class="flex items-center gap-2 text-muted text-sm">
+            <svg class="text-brand" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+            </svg>
+            +500 alunos transformados
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll hint -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-muted text-xs animate-bounce" aria-hidden="true">
+      <span class="tracking-widest uppercase text-[10px]">Role para baixo</span>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M12 5v14M5 12l7 7 7-7"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       TICKER — Fita de estatísticas animadas
+       ============================================================ -->
+  <div class="ticker-wrap py-3" aria-hidden="true">
+    <div class="ticker-track">
+      <!-- Repete 2x para loop contínuo -->
+      <span class="inline-flex items-center gap-4 px-8 text-sm text-muted font-medium">
+        <span class="text-brand font-display text-lg">+500</span> ALUNOS TRANSFORMADOS
+        <span class="text-brand mx-2">•</span>
+        <span class="text-brand font-display text-lg">8</span> ANOS DE EXPERIÊNCIA
+        <span class="text-brand mx-2">•</span>
+        <span class="text-brand font-display text-lg">98%</span> DE SATISFAÇÃO
+        <span class="text-brand mx-2">•</span>
+        TREINO PRESENCIAL &amp; ONLINE
+        <span class="text-brand mx-2">•</span>
+        <span class="text-brand font-display text-lg">CREF</span> CERTIFICADO
+        <span class="text-brand mx-2">•</span>
+        RESULTADOS REAIS EM SEMANAS
+        <span class="text-brand mx-2">•</span>
+        DIETA PERSONALIZADA INCLUSA
+        <span class="text-brand mx-2">•</span>
+      </span>
+      <span class="inline-flex items-center gap-4 px-8 text-sm text-muted font-medium">
+        <span class="text-brand font-display text-lg">+500</span> ALUNOS TRANSFORMADOS
+        <span class="text-brand mx-2">•</span>
+        <span class="text-brand font-display text-lg">8</span> ANOS DE EXPERIÊNCIA
+        <span class="text-brand mx-2">•</span>
+        <span class="text-brand font-display text-lg">98%</span> DE SATISFAÇÃO
+        <span class="text-brand mx-2">•</span>
+        TREINO PRESENCIAL &amp; ONLINE
+        <span class="text-brand mx-2">•</span>
+        <span class="text-brand font-display text-lg">CREF</span> CERTIFICADO
+        <span class="text-brand mx-2">•</span>
+        RESULTADOS REAIS EM SEMANAS
+        <span class="text-brand mx-2">•</span>
+        DIETA PERSONALIZADA INCLUSA
+        <span class="text-brand mx-2">•</span>
+      </span>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       SEÇÃO 2 — SERVIÇOS
+       ============================================================ -->
+  <section id="servicos" class="py-20 lg:py-28">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <!-- Cabeçalho da seção -->
+      <div class="text-center mb-16 reveal">
+        <span class="accent-line mb-4 mx-auto block"></span>
+        <p class="text-brand text-sm font-semibold tracking-widest uppercase mb-3">O Que Oferecemos</p>
+        <h2 class="font-display text-5xl sm:text-6xl lg:text-7xl text-white leading-none mb-4">
+          NOSSOS <span class="text-brand">SERVIÇOS</span>
+        </h2>
+        <p class="text-muted text-lg max-w-xl mx-auto leading-relaxed">
+          Cada aluno tem uma jornada única. Nossos serviços são desenhados para encaixar no seu ritmo, objetivo e estilo de vida.
+        </p>
+      </div>
+
+      <!-- Grid de cards -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+
+        <!-- Card 1 — Treino Presencial -->
+        <article class="service-card reveal">
+          <!-- Ícone SVG inline -->
+          <div class="mb-6 w-14 h-14 rounded-xl bg-brand/10 flex items-center justify-center">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M6.5 6.5h11M6.5 17.5h11M2 12h2m18 0h-2M4.5 9.5l1.5 2.5-1.5 2.5M19.5 9.5l-1.5 2.5 1.5 2.5"/>
+              <circle cx="12" cy="12" r="3"/>
+            </svg>
+          </div>
+          <h3 class="font-display text-2xl text-white tracking-wide mb-3">TREINO PRESENCIAL</h3>
+          <p class="text-muted text-sm leading-relaxed mb-5">
+            Sessões individuais com acompanhamento direto e correção de postura em tempo real. Maximize cada movimento e evolua mais rápido com o personal ao seu lado.
+          </p>
+          <ul class="space-y-2 text-sm text-muted mb-6">
+            <li class="flex items-start gap-2"><span class="plan-check mt-0.5">✓</span> Avaliação física completa</li>
+            <li class="flex items-start gap-2"><span class="plan-check mt-0.5">✓</span> Planilha de treino exclusiva</li>
+            <li class="flex items-start gap-2"><span class="plan-check mt-0.5">✓</span> Orientação nutricional básica</li>
+            <li class="flex items-start gap-2"><span class="plan-check mt-0.5">✓</span> Sessões de 60 minutos</li>
+          </ul>
+          <a href="#contato" class="btn-outline text-sm w-full justify-center">Saiba Mais</a>
+        </article>
+
+        <!-- Card 2 — Treino Online -->
+        <article class="service-card reveal" style="transition-delay: 0.15s;">
+          <div class="mb-6 w-14 h-14 rounded-xl bg-brand/10 flex items-center justify-center">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="2" y="3" width="20" height="14" rx="2"/>
+              <path d="M8 21h8M12 17v4"/>
+              <path d="M9 9l3 3 5-5"/>
+            </svg>
+          </div>
+          <h3 class="font-display text-2xl text-white tracking-wide mb-3">TREINO ONLINE</h3>
+          <p class="text-muted text-sm leading-relaxed mb-5">
+            Treine de onde estiver com a mesma qualidade do presencial. Planilhas detalhadas, vídeos demonstrativos e acompanhamento semanal pelo app.
+          </p>
+          <ul class="space-y-2 text-sm text-muted mb-6">
+            <li class="flex items-start gap-2"><span class="plan-check mt-0.5">✓</span> Planilha mensal atualizada</li>
+            <li class="flex items-start gap-2"><span class="plan-check mt-0.5">✓</span> Vídeos de execução</li>
+            <li class="flex items-start gap-2"><span class="plan-check mt-0.5">✓</span> Check-in semanal por vídeo</li>
+            <li class="flex items-start gap-2"><span class="plan-check mt-0.5">✓</span> Suporte via WhatsApp</li>
+          </ul>
+          <a href="#contato" class="btn-outline text-sm w-full justify-center">Saiba Mais</a>
+        </article>
+
+        <!-- Card 3 — Avaliação Física -->
+        <article class="service-card reveal" style="transition-delay: 0.30s;">
+          <div class="mb-6 w-14 h-14 rounded-xl bg-brand/10 flex items-center justify-center">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/>
+              <rect x="9" y="3" width="6" height="4" rx="1"/>
+              <path d="M9 12h6M9 16h4"/>
+            </svg>
+          </div>
+          <h3 class="font-display text-2xl text-white tracking-wide mb-3">AVALIAÇÃO FÍSICA</h3>
+          <p class="text-muted text-sm leading-relaxed mb-5">
+            Entenda seu corpo antes de começar. Análise de composição corporal, testes de força, flexibilidade e resistência para montar o plano ideal para você.
+          </p>
+          <ul class="space-y-2 text-sm text-muted mb-6">
+            <li class="flex items-start gap-2"><span class="plan-check mt-0.5">✓</span> Bioimpedância completa</li>
+            <li class="flex items-start gap-2"><span class="plan-check mt-0.5">✓</span> Testes físicos funcionais</li>
+            <li class="flex items-start gap-2"><span class="plan-check mt-0.5">✓</span> Relatório detalhado em PDF</li>
+            <li class="flex items-start gap-2"><span class="plan-check mt-0.5">✓</span> <span class="text-brand font-semibold">Grátis</span> no primeiro mês</li>
+          </ul>
+          <a href="#contato" class="btn-primary text-sm w-full justify-center">Agendar Grátis</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-sep max-w-7xl mx-auto px-4"></div>
+
+  <!-- ============================================================
+       SEÇÃO DE ESTATÍSTICAS
+       ============================================================ -->
+  <section class="py-16 bg-card/30">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+        <div class="reveal">
+          <div class="stat-number">500+</div>
+          <p class="text-muted text-sm mt-1">Alunos transformados</p>
+        </div>
+        <div class="reveal" style="transition-delay:0.1s">
+          <div class="stat-number">8</div>
+          <p class="text-muted text-sm mt-1">Anos de experiência</p>
+        </div>
+        <div class="reveal" style="transition-delay:0.2s">
+          <div class="stat-number">98%</div>
+          <p class="text-muted text-sm mt-1">Taxa de satisfação</p>
+        </div>
+        <div class="reveal" style="transition-delay:0.3s">
+          <div class="stat-number">3</div>
+          <p class="text-muted text-sm mt-1">Certificações CREF</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-sep max-w-7xl mx-auto px-4"></div>
+
+  <!-- ============================================================
+       SEÇÃO 3 — DEPOIMENTOS
+       ============================================================ -->
+  <section id="depoimentos" class="py-20 lg:py-28">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <!-- Cabeçalho -->
+      <div class="text-center mb-16 reveal">
+        <span class="accent-line mb-4 mx-auto block"></span>
+        <p class="text-brand text-sm font-semibold tracking-widest uppercase mb-3">Histórias Reais</p>
+        <h2 class="font-display text-5xl sm:text-6xl lg:text-7xl text-white leading-none mb-4">
+          RESULTADOS QUE <span class="text-brand">FALAM</span>
+        </h2>
+        <p class="text-muted text-lg max-w-xl mx-auto leading-relaxed">
+          Veja o que nossos alunos dizem após transformarem suas vidas com o método ForcaMax.
+        </p>
+      </div>
+
+      <!-- Grid de depoimentos -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+
+        <!-- Depoimento 1 — Carlos -->
+        <article class="testimonial-card reveal">
+          <!-- Aspas decorativas -->
+          <div class="text-brand text-5xl font-serif leading-none mb-2 opacity-60" aria-hidden="true">"</div>
+          <p class="text-white/90 text-sm leading-relaxed mb-6 italic">
+            Perdi 15kg em 5 meses e nunca me senti tão bem na minha vida. O acompanhamento do personal foi fundamental — cada treino tinha um propósito claro. Minha disposição no trabalho melhorou 100%.
+          </p>
+          <!-- Avaliação -->
+          <div class="text-brand text-base mb-4" aria-label="5 estrelas">★★★★★</div>
+          <!-- Autor -->
+          <div class="flex items-center gap-3">
+            <div class="avatar" style="background: linear-gradient(135deg, #f97316 0%, #7c2d12 100%);" aria-hidden="true">CS</div>
+            <div>
+              <p class="text-white font-semibold text-sm">Carlos Santos</p>
+              <p class="text-muted text-xs">Engenheiro, 34 anos — Treino Presencial</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- Depoimento 2 — Fernanda -->
+        <article class="testimonial-card reveal" style="transition-delay:0.15s;">
+          <div class="text-brand text-5xl font-serif leading-none mb-2 opacity-60" aria-hidden="true">"</div>
+          <p class="text-white/90 text-sm leading-relaxed mb-6 italic">
+            Comecei com o treino online com muito ceticismo, mas os resultados me surpreenderam. Em 3 meses ganhei massa muscular e finalmente aprendi a me alimentar de forma correta. Vale cada centavo!
+          </p>
+          <div class="text-brand text-base mb-4" aria-label="5 estrelas">★★★★★</div>
+          <div class="flex items-center gap-3">
+            <div class="avatar" style="background: linear-gradient(135deg, #f97316 0%, #9a3412 100%);" aria-hidden="true">FA</div>
+            <div>
+              <p class="text-white font-semibold text-sm">Fernanda Alves</p>
+              <p class="text-muted text-xs">Designer, 28 anos — Treino Online</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- Depoimento 3 — Roberto -->
+        <article class="testimonial-card reveal" style="transition-delay:0.30s;">
+          <div class="text-brand text-5xl font-serif leading-none mb-2 opacity-60" aria-hidden="true">"</div>
+          <p class="text-white/90 text-sm leading-relaxed mb-6 italic">
+            Aos 48 anos achei que era tarde demais para mudar. O pessoal da ForcaMax me mostrou que não tem idade para começar. Hoje corro 10km, faço musculação e me sinto 10 anos mais jovem.
+          </p>
+          <div class="text-brand text-base mb-4" aria-label="5 estrelas">★★★★★</div>
+          <div class="flex items-center gap-3">
+            <div class="avatar" style="background: linear-gradient(135deg, #f97316 0%, #431407 100%);" aria-hidden="true">RM</div>
+            <div>
+              <p class="text-white font-semibold text-sm">Roberto Mendes</p>
+              <p class="text-muted text-xs">Médico, 48 anos — Plano Elite</p>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- CTA pós-depoimentos -->
+      <div class="text-center mt-12 reveal">
+        <p class="text-muted text-sm mb-4">Pronto para escrever a sua história de transformação?</p>
+        <a href="https://wa.me/5511999999999" target="_blank" rel="noopener noreferrer" class="btn-primary">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+          </svg>
+          QUERO MEU RESULTADO AGORA
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-sep max-w-7xl mx-auto px-4"></div>
+
+  <!-- ============================================================
+       SEÇÃO 4 — PREÇOS
+       ============================================================ -->
+  <section id="precos" class="py-20 lg:py-28">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <!-- Cabeçalho -->
+      <div class="text-center mb-16 reveal">
+        <span class="accent-line mb-4 mx-auto block"></span>
+        <p class="text-brand text-sm font-semibold tracking-widest uppercase mb-3">Planos e Preços</p>
+        <h2 class="font-display text-5xl sm:text-6xl lg:text-7xl text-white leading-none mb-4">
+          INVISTA NO SEU <span class="text-brand">CORPO</span>
+        </h2>
+        <p class="text-muted text-lg max-w-xl mx-auto leading-relaxed">
+          Planos flexíveis para todos os perfis. Cancele quando quiser, sem fidelidade. Primeira avaliação sempre grátis.
+        </p>
+      </div>
+
+      <!-- Grid de planos -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-start">
+
+        <!-- Plano Starter -->
+        <article class="price-card reveal">
+          <div class="mb-6">
+            <p class="text-muted text-sm font-semibold tracking-widest uppercase mb-2">Starter</p>
+            <div class="flex items-end gap-2 mb-1">
+              <span class="font-display text-5xl text-white leading-none">R$199</span>
+              <span class="text-muted text-sm pb-1">/mês</span>
+            </div>
+            <p class="text-muted text-xs">Sem taxa de adesão</p>
+          </div>
+
+          <ul class="space-y-3 text-sm text-muted mb-8 flex-1">
+            <li class="flex items-start gap-2"><span class="plan-check mt-0.5">✓</span> 4 sessões presenciais/mês</li>
+            <li class="flex items-start gap-2"><span class="plan-check mt-0.5">✓</span> Planilha de treino mensal</li>
+            <li class="flex items-start gap-2"><span class="plan-check mt-0.5">✓</span> Avaliação física inicial</li>
+            <li class="flex items-start gap-2"><span class="plan-check mt-0.5">✓</span> Suporte por WhatsApp</li>
+            <li class="flex items-start gap-2 opacity-40"><span class="mt-0.5">✗</span> Plano alimentar personalizado</li>
+          </ul>
+
+          <a href="https://wa.me/5511999999999?text=Ol%C3%A1!%20Tenho%20interesse%20no%20Plano%20Starter." target="_blank" rel="noopener noreferrer" class="btn-outline w-full justify-center">
+            Escolher Starter
+          </a>
+        </article>
+
+        <!-- Plano Pro — MAIS POPULAR -->
+        <article class="price-card popular reveal" style="transition-delay:0.15s;">
+          <span class="badge-popular">MAIS POPULAR</span>
+          <div class="mb-6 mt-2">
+            <p class="text-brand text-sm font-semibold tracking-widest uppercase mb-2">Pro</p>
+            <div class="flex items-end gap-2 mb-1">
+              <span class="font-display text-5xl text-brand leading-none">R$349</span>
+              <span class="text-muted text-sm pb-1">/mês</span>
+            </div>
+            <p class="text-muted text-xs">Mais escolhido pelos alunos</p>
+          </div>
+
+          <ul class="space-y-3 text-sm text-muted mb-8 flex-1">
+            <li class="flex items-start gap-2"><span class="plan-check mt-0.5">✓</span> 8 sessões presenciais/mês</li>
+            <li class="flex items-start gap-2"><span class="plan-check mt-0.5">✓</span> Planilha atualizada quinzenalmente</li>
+            <li class="flex items-start gap-2"><span class="plan-check mt-0.5">✓</span> Avaliação física mensal</li>
+            <li class="flex items-start gap-2"><span class="plan-check mt-0.5">✓</span> Plano alimentar básico</li>
+            <li class="flex items-start gap-2"><span class="plan-check mt-0.5">✓</span> Suporte prioritário 7 dias</li>
+          </ul>
+
+          <a href="https://wa.me/5511999999999?text=Ol%C3%A1!%20Tenho%20interesse%20no%20Plano%20Pro." target="_blank" rel="noopener noreferrer" class="btn-primary w-full justify-center">
+            Escolher Pro
+          </a>
+        </article>
+
+        <!-- Plano Elite -->
+        <article class="price-card reveal" style="transition-delay:0.30s;">
+          <div class="mb-6">
+            <p class="text-muted text-sm font-semibold tracking-widest uppercase mb-2">Elite</p>
+            <div class="flex items-end gap-2 mb-1">
+              <span class="font-display text-5xl text-white leading-none">R$549</span>
+              <span class="text-muted text-sm pb-1">/mês</span>
+            </div>
+            <p class="text-muted text-xs">Experiência completa</p>
+          </div>
+
+          <ul class="space-y-3 text-sm text-muted mb-8 flex-1">
+            <li class="flex items-start gap-2"><span class="plan-check mt-0.5">✓</span> Sessões ilimitadas/mês</li>
+            <li class="flex items-start gap-2"><span class="plan-check mt-0.5">✓</span> Planilha 100% personalizada</li>
+            <li class="flex items-start gap-2"><span class="plan-check mt-0.5">✓</span> Nutricionista parceira inclusa</li>
+            <li class="flex items-start gap-2"><span class="plan-check mt-0.5">✓</span> Acompanhamento em competições</li>
+            <li class="flex items-start gap-2"><span class="plan-check mt-0.5">✓</span> Linha direta com o personal</li>
+          </ul>
+
+          <a href="https://wa.me/5511999999999?text=Ol%C3%A1!%20Tenho%20interesse%20no%20Plano%20Elite." target="_blank" rel="noopener noreferrer" class="btn-outline w-full justify-center">
+            Escolher Elite
+          </a>
+        </article>
+      </div>
+
+      <!-- Garantia -->
+      <div class="mt-12 text-center reveal">
+        <div class="inline-flex items-center gap-3 bg-brand/10 border border-brand/20 rounded-xl px-6 py-4">
+          <svg class="text-brand flex-shrink-0" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            <path d="M9 12l2 2 4-4"/>
+          </svg>
+          <p class="text-white text-sm">
+            <strong class="text-brand">Garantia de 15 dias:</strong> se não estiver satisfeito no início, devolvemos o valor integral. Sem burocracia.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-sep max-w-7xl mx-auto px-4"></div>
+
+  <!-- ============================================================
+       SEÇÃO 5 — CONTATO / FORMULÁRIO
+       ============================================================ -->
+  <section id="contato" class="py-20 lg:py-28">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+
+        <!-- Coluna esquerda — Texto -->
+        <div class="reveal-left">
+          <span class="accent-line mb-4 block"></span>
+          <p class="text-brand text-sm font-semibold tracking-widest uppercase mb-3">Entre em Contato</p>
+          <h2 class="font-display text-5xl sm:text-6xl lg:text-7xl text-white leading-none mb-6">
+            PRONTO PARA <span class="text-brand">COMEÇAR?</span>
+          </h2>
+          <p class="text-muted text-lg leading-relaxed mb-8">
+            Preencha o formulário ou nos chame diretamente no WhatsApp. Responderemos em até 2 horas durante o horário comercial.
+          </p>
+
+          <!-- Info de contato -->
+          <div class="space-y-4 mb-8">
+            <div class="flex items-center gap-4">
+              <div class="w-10 h-10 rounded-lg bg-brand/10 flex items-center justify-center flex-shrink-0">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012 .18h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14h-.08z"/>
+                </svg>
+              </div>
+              <div>
+                <p class="text-white text-sm font-semibold">(11) 99999-9999</p>
+                <p class="text-muted text-xs">Seg–Sáb, 6h às 21h</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-4">
+              <div class="w-10 h-10 rounded-lg bg-brand/10 flex items-center justify-center flex-shrink-0">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                  <polyline points="22,6 12,13 2,6"/>
+                </svg>
+              </div>
+              <div>
+                <p class="text-white text-sm font-semibold">contato@forcamax.com.br</p>
+                <p class="text-muted text-xs">Retorno em até 24h</p>
+              </div>
+            </div>
+            <div class="flex items-center gap-4">
+              <div class="w-10 h-10 rounded-lg bg-brand/10 flex items-center justify-center flex-shrink-0">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f97316" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+              </div>
+              <div>
+                <p class="text-white text-sm font-semibold">Av. Paulista, 1000 — São Paulo/SP</p>
+                <p class="text-muted text-xs">Atendimento presencial com hora marcada</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Botão WhatsApp direto -->
+          <a
+            href="https://wa.me/5511999999999"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-primary"
+            aria-label="Abrir conversa no WhatsApp"
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+            </svg>
+            CHAMAR NO WHATSAPP AGORA
+          </a>
+        </div>
+
+        <!-- Coluna direita — Formulário -->
+        <div class="reveal-right">
+          <form
+            id="contact-form"
+            novalidate
+            class="bg-card border border-border rounded-2xl p-6 sm:p-8"
+            aria-label="Formulário de contato"
+          >
+            <h3 class="font-display text-2xl text-white tracking-wide mb-6">ENVIE UMA MENSAGEM</h3>
+
+            <!-- Feedback de sucesso (oculto por padrão) -->
+            <div
+              id="form-success"
+              class="hidden mb-4 flex items-center gap-3 bg-green-500/10 border border-green-500/20 rounded-lg px-4 py-3"
+              role="alert"
+              aria-live="polite"
+            >
+              <svg class="text-green-400 flex-shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/>
+              </svg>
+              <span class="text-green-400 text-sm font-medium">Mensagem enviada! Retornaremos em breve.</span>
+            </div>
+
+            <!-- Feedback de erro (oculto por padrão) -->
+            <div
+              id="form-error"
+              class="hidden mb-4 flex items-center gap-3 bg-red-500/10 border border-red-500/20 rounded-lg px-4 py-3"
+              role="alert"
+              aria-live="polite"
+            >
+              <svg class="text-red-400 flex-shrink-0" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/>
+              </svg>
+              <span class="text-red-400 text-sm font-medium">Preencha todos os campos obrigatórios.</span>
+            </div>
+
+            <div class="space-y-5">
+              <!-- Nome -->
+              <div>
+                <label for="nome" class="block text-white text-sm font-medium mb-2">
+                  Nome completo <span class="text-brand" aria-label="campo obrigatório">*</span>
+                </label>
+                <input
+                  type="text"
+                  id="nome"
+                  name="nome"
+                  class="form-input"
+                  placeholder="João da Silva"
+                  required
+                  autocomplete="name"
+                />
+              </div>
+
+              <!-- E-mail -->
+              <div>
+                <label for="email" class="block text-white text-sm font-medium mb-2">
+                  E-mail <span class="text-brand" aria-label="campo obrigatório">*</span>
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  class="form-input"
+                  placeholder="joao@email.com"
+                  required
+                  autocomplete="email"
+                />
+              </div>
+
+              <!-- Telefone -->
+              <div>
+                <label for="telefone" class="block text-white text-sm font-medium mb-2">
+                  Telefone / WhatsApp
+                </label>
+                <input
+                  type="tel"
+                  id="telefone"
+                  name="telefone"
+                  class="form-input"
+                  placeholder="(11) 99999-9999"
+                  autocomplete="tel"
+                />
+              </div>
+
+              <!-- Mensagem -->
+              <div>
+                <label for="mensagem" class="block text-white text-sm font-medium mb-2">
+                  Mensagem <span class="text-brand" aria-label="campo obrigatório">*</span>
+                </label>
+                <textarea
+                  id="mensagem"
+                  name="mensagem"
+                  rows="4"
+                  class="form-input resize-none"
+                  placeholder="Fale sobre seu objetivo, disponibilidade ou dúvidas..."
+                  required
+                ></textarea>
+              </div>
+
+              <!-- Botão submit -->
+              <button
+                type="submit"
+                id="submit-btn"
+                class="btn-primary w-full justify-center text-base py-4"
+                aria-label="Enviar formulário de contato"
+              >
+                <span id="submit-text">QUERO COMEÇAR AGORA</span>
+                <!-- Spinner (oculto por padrão) -->
+                <svg id="submit-spinner" class="hidden animate-spin" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path d="M21 12a9 9 0 11-6.219-8.56"/>
+                </svg>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="bg-card border-t border-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
+
+      <!-- Grid principal do footer -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 mb-10">
+
+        <!-- Coluna 1 — Marca -->
+        <div>
+          <a href="#hero" class="block mb-4" aria-label="ForcaMax — Ir ao início">
+            <span class="font-display text-3xl text-white leading-none">
+              FORCA<span class="text-brand">MAX</span>
+            </span>
+          </a>
+          <p class="text-muted text-sm leading-relaxed mb-5">
+            Personal training de alta performance para quem quer resultados reais. Método comprovado, comprometimento total.
+          </p>
+          <!-- Redes sociais fictícias -->
+          <div class="flex items-center gap-3" aria-label="Redes sociais">
+            <!-- Instagram -->
+            <a href="#" aria-label="Instagram da ForcaMax" class="w-9 h-9 rounded-lg bg-white/5 hover:bg-brand/20 hover:text-brand flex items-center justify-center text-muted transition-colors">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+              </svg>
+            </a>
+            <!-- YouTube -->
+            <a href="#" aria-label="YouTube da ForcaMax" class="w-9 h-9 rounded-lg bg-white/5 hover:bg-brand/20 hover:text-brand flex items-center justify-center text-muted transition-colors">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 001.46 6.42 29 29 0 001 12a29 29 0 00.46 5.58 2.78 2.78 0 001.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.96A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/>
+              </svg>
+            </a>
+            <!-- TikTok -->
+            <a href="#" aria-label="TikTok da ForcaMax" class="w-9 h-9 rounded-lg bg-white/5 hover:bg-brand/20 hover:text-brand flex items-center justify-center text-muted transition-colors">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.23 8.23 0 004.81 1.53V6.77a4.85 4.85 0 01-1.04-.08z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Coluna 2 — Links rápidos -->
+        <div>
+          <h4 class="font-display text-lg text-white tracking-wide mb-4">LINKS RÁPIDOS</h4>
+          <ul class="space-y-3">
+            <li><a href="#servicos"    class="text-muted text-sm hover:text-brand transition-colors">Serviços</a></li>
+            <li><a href="#depoimentos" class="text-muted text-sm hover:text-brand transition-colors">Depoimentos</a></li>
+            <li><a href="#precos"      class="text-muted text-sm hover:text-brand transition-colors">Planos e Preços</a></li>
+            <li><a href="#contato"     class="text-muted text-sm hover:text-brand transition-colors">Contato</a></li>
+            <li>
+              <a
+                href="https://wa.me/5511999999999"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-muted text-sm hover:text-brand transition-colors"
+              >
+                WhatsApp
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Coluna 3 — Serviços -->
+        <div>
+          <h4 class="font-display text-lg text-white tracking-wide mb-4">SERVIÇOS</h4>
+          <ul class="space-y-3">
+            <li><a href="#servicos" class="text-muted text-sm hover:text-brand transition-colors">Treino Presencial</a></li>
+            <li><a href="#servicos" class="text-muted text-sm hover:text-brand transition-colors">Treino Online</a></li>
+            <li><a href="#servicos" class="text-muted text-sm hover:text-brand transition-colors">Avaliação Física</a></li>
+            <li><a href="#precos"   class="text-muted text-sm hover:text-brand transition-colors">Plano Starter</a></li>
+            <li><a href="#precos"   class="text-muted text-sm hover:text-brand transition-colors">Plano Pro</a></li>
+            <li><a href="#precos"   class="text-muted text-sm hover:text-brand transition-colors">Plano Elite</a></li>
+          </ul>
+        </div>
+
+        <!-- Coluna 4 — Horário -->
+        <div>
+          <h4 class="font-display text-lg text-white tracking-wide mb-4">HORÁRIO</h4>
+          <ul class="space-y-3">
+            <li class="flex justify-between text-sm">
+              <span class="text-muted">Segunda – Sexta</span>
+              <span class="text-white">6h – 21h</span>
+            </li>
+            <li class="flex justify-between text-sm">
+              <span class="text-muted">Sábado</span>
+              <span class="text-white">7h – 15h</span>
+            </li>
+            <li class="flex justify-between text-sm">
+              <span class="text-muted">Domingo</span>
+              <span class="text-brand">Online 24h</span>
+            </li>
+          </ul>
+          <div class="mt-6 p-4 bg-brand/5 border border-brand/15 rounded-xl">
+            <p class="text-white text-sm font-semibold mb-1">CREF 123456-G/SP</p>
+            <p class="text-muted text-xs">Personal Trainer certificado pelo Conselho Regional de Educação Física</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Linha divisória -->
+      <div class="section-sep mb-8"></div>
+
+      <!-- Rodapé inferior -->
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+        <p class="text-muted text-xs text-center sm:text-left">
+          &copy; 2026 ForcaMax Personal Training. Todos os direitos reservados.
+        </p>
+        <div class="flex items-center gap-5">
+          <a href="#" class="text-muted text-xs hover:text-white transition-colors">Política de Privacidade</a>
+          <a href="#" class="text-muted text-xs hover:text-white transition-colors">Termos de Uso</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       JAVASCRIPT INLINE — Mínimo e funcional
+       ============================================================ -->
+  <script>
+    /* ---- Nav: adiciona classe ao rolar ---- */
+    const navbar = document.getElementById('navbar');
+    const onScroll = () => {
+      navbar.classList.toggle('nav-scrolled', window.scrollY > 40);
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    /* ---- Menu mobile: toggle ---- */
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const bar1 = document.getElementById('bar1');
+    const bar2 = document.getElementById('bar2');
+    const bar3 = document.getElementById('bar3');
+
+    let menuOpen = false;
+
+    menuToggle.addEventListener('click', () => {
+      menuOpen = !menuOpen;
+      mobileMenu.classList.toggle('open', menuOpen);
+      menuToggle.setAttribute('aria-expanded', menuOpen.toString());
+
+      // Animação hamburguer → X
+      if (menuOpen) {
+        bar1.style.transform = 'translateY(8px) rotate(45deg)';
+        bar2.style.opacity = '0';
+        bar3.style.transform = 'translateY(-8px) rotate(-45deg)';
+        bar3.style.width = '24px';
+      } else {
+        bar1.style.transform = '';
+        bar2.style.opacity = '1';
+        bar3.style.transform = '';
+        bar3.style.width = '';
+      }
+    });
+
+    /* Fechar menu ao clicar num link mobile */
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        menuOpen = false;
+        mobileMenu.classList.remove('open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        bar1.style.transform = '';
+        bar2.style.opacity = '1';
+        bar3.style.transform = '';
+        bar3.style.width = '';
+      });
+    });
+
+    /* ---- Reveal ao scroll (IntersectionObserver) ---- */
+    const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+    const revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+    );
+    revealElements.forEach(el => revealObserver.observe(el));
+
+    /* ---- Formulário de contato: validação + feedback ---- */
+    const form          = document.getElementById('contact-form');
+    const submitBtn     = document.getElementById('submit-btn');
+    const submitText    = document.getElementById('submit-text');
+    const submitSpinner = document.getElementById('submit-spinner');
+    const formSuccess   = document.getElementById('form-success');
+    const formError     = document.getElementById('form-error');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      /* Oculta feedbacks anteriores */
+      formSuccess.classList.add('hidden');
+      formError.classList.add('hidden');
+
+      /* Validação básica */
+      const nome     = form.nome.value.trim();
+      const email    = form.email.value.trim();
+      const mensagem = form.mensagem.value.trim();
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+      if (!nome || !email || !mensagem || !emailRegex.test(email)) {
+        formError.classList.remove('hidden');
+        formError.querySelector('span').textContent =
+          !emailRegex.test(email) && email
+            ? 'Insira um e-mail válido.'
+            : 'Preencha todos os campos obrigatórios.';
+        form.querySelector('[required]:invalid, [required]:placeholder-shown')?.focus();
+        return;
+      }
+
+      /* Estado de carregamento */
+      submitBtn.disabled = true;
+      submitText.textContent = 'ENVIANDO...';
+      submitSpinner.classList.remove('hidden');
+
+      /* Simula envio (substituir pela integração real) */
+      await new Promise(resolve => setTimeout(resolve, 1800));
+
+      /* Sucesso */
+      submitBtn.disabled = false;
+      submitText.textContent = 'QUERO COMEÇAR AGORA';
+      submitSpinner.classList.add('hidden');
+      formSuccess.classList.remove('hidden');
+      form.reset();
+
+      /* Rola para o feedback */
+      formSuccess.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    });
+
+    /* ---- Máscara de telefone ---- */
+    const telInput = document.getElementById('telefone');
+    telInput.addEventListener('input', () => {
+      let v = telInput.value.replace(/\D/g, '').slice(0, 11);
+      if (v.length > 10) {
+        v = v.replace(/^(\d{2})(\d{5})(\d{4})$/, '($1) $2-$3');
+      } else if (v.length > 6) {
+        v = v.replace(/^(\d{2})(\d{4})(\d*)$/, '($1) $2-$3');
+      } else if (v.length > 2) {
+        v = v.replace(/^(\d{2})(\d*)$/, '($1) $2');
+      }
+      telInput.value = v;
+    });
+  </script>
+</body>
+</html>

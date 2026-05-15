@@ -13,10 +13,10 @@ export function ProcessSection() {
     <section className="section process" id="como-funciona">
       <Container>
         <div className="section-heading">
-          <h2 className="section-title">Como funciona na prática</h2>
+          <h2 className="section-title">Como funciona</h2>
           <p className="section-text">
-            Você envia os arquivos das plataformas e recebe uma base pronta para
-            análise com os números organizados em até 24 horas.
+            Do briefing à entrega em 3 passos simples. Sem enrolação, sem
+            surpresa no prazo.
           </p>
         </div>
 
