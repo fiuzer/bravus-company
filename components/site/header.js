@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { Container } from "@/components/ui/container";
+import { MobileNav } from "@/components/site/mobile-nav";
 
 export function Header() {
   return (
@@ -26,6 +27,8 @@ export function Header() {
               Fale conosco
             </a>
           </nav>
+
+          <MobileNav />
         </div>
       </Container>
     </header>

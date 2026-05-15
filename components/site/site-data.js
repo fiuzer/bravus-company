@@ -36,3 +36,30 @@ export const steps = [
     icon: "users",
   },
 ];
+
+export const testimonials = [
+  {
+    id: 1,
+    name: "Carlos Drummond",
+    business: "Barbearia Dom Carlos",
+    avatar: "https://i.pravatar.cc/80?img=11",
+    quote:
+      "Em 5 dias tinha minha landing page no ar. Os clientes comentam que o site ficou mais profissional que o de concorrentes muito maiores.",
+  },
+  {
+    id: 2,
+    name: "Fernanda Rocha",
+    business: "FitLife Personal",
+    avatar: "https://i.pravatar.cc/80?img=44",
+    quote:
+      "Triplicou o número de alunos que entram em contato pelo site. A Bravus entendeu exatamente o que eu precisava sem enrolação.",
+  },
+  {
+    id: 3,
+    name: "Dr. Marcelo Santos",
+    business: "Clínica Saúde Plena",
+    avatar: "https://i.pravatar.cc/80?img=67",
+    quote:
+      "Precisava de um site que transmitisse confiança. O resultado foi além do esperado — profissional, limpo e entregue no prazo.",
+  },
+];
